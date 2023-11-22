@@ -1,0 +1,51 @@
+name: Checks
+
+# Event for the workflow
+on: push
+
+# List of jobs
+jobs:
+  prettier:
+    # Operating System
+    runs-on: ubuntu-latest
+    # Job steps
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: yarn
+      - name: Install dependencies
+        run: yarn
+      - name: Run Prettier
+        run: |
+          yarn prettier . --check || (git diff --quiet || (echo 'Unable to show a diff because there are unstaged changes'; false);
+          (yarn prettier . -w --loglevel silent && git --no-pager diff; git restore .) && false);
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: yarn
+      - name: Install dependencies
+        run: yarn
+      - uses: sibiraj-s/action-eslint@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          eslint-args: "--ignore-path=.gitignore --quiet"
+          extensions: "js,jsx,ts,tsx"
+          annotations: true
+  typescript:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: yarn
+      - name: Install dependencies
+        run: yarn
+      - name: Run TypeScript
+        run: yarn tsc --noEmit

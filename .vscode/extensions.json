@@ -1,0 +1,20 @@
+{
+  "recommendations": [
+    // Override user/workspace settings with settings found in .editorconfig
+    "EditorConfig.EditorConfig",
+    // eslint
+    "dbaeumer.vscode-eslint",
+    // toggle format on save
+    "tombonnike.vscode-status-bar-format-toggle",
+    // prettier
+    "esbenp.prettier-vscode",
+    // shopify theme check
+    "Shopify.theme-check-vscode",
+    // Add snippets for liquid syntax
+    "killalau.vscode-liquid-snippets",
+    // tailwindcss intellisense
+    "bradlc.vscode-tailwindcss"
+  ],
+  // List of extensions recommended by VS Code that should not be recommended for users of this workspace.
+  "unwantedRecommendations": []
+}

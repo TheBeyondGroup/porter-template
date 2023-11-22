@@ -1,0 +1,6 @@
+root: _build/theme
+
+MatchingTranslations:
+  enabled: false
+TemplateLength:
+  enabled: false

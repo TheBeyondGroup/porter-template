@@ -1,0 +1,30 @@
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# JS #
+######
+node_modules
+
+# Shopkeeper #
+##############
+.shopkeeper/**/**/.env
+.shopkeeper/.current-bucket
+.env
+
+# Theme #
+#########
+theme/config/settings_data.json
+theme/templates/**/*.json
+theme/sections/*.json
+
+# Build System #
+################
+_build/theme
+
